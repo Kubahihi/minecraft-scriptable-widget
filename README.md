@@ -1,5 +1,4 @@
 # Minecraft Scriptable Widget
-Simple iOS widget using Scriptable and Minecraft Server Status API
-
+##Jednoduchý widget na iOS/iPadOS, který proužívá aplikaci Scriptable a MCStatus API
 ### https://scriptable.app/
 ### https://mcstatus.io
