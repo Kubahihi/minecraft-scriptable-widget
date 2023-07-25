@@ -5,6 +5,8 @@
 // Nutné vyplnit IP serveru a font
 var serverIP = ""
 var widgetFont = "" // Seznam zde: iosfonts.com
+var titleSize = 35 // Velikost nadpisu
+var textSize = 20 // Velikost textu
 
 // Ikona serveru
 var iconRequest = new Request("https://api.mcstatus.io/v2/icon/" + serverIP)
@@ -38,7 +40,7 @@ titleStack.addSpacer()
 
 // Nastavení nadpisu
 Title.centerAlignText()
-titleFont = new Font(widgetFont, 35)
+titleFont = new Font(widgetFont, titleSize)
 Title.font = titleFont
 Title.height = 3
 Title.textOpacity = 2.5
@@ -46,14 +48,14 @@ Title.textOpacity = 2.5
 // Nastavení zprávy o aktivitě serveru 
 let isOnlineText = widget.addText("Server je " + isServerOnline)
 isOnlineText.centerAlignText()
-isOnlineTextFont = new Font(widgetFont, 20)
+isOnlineTextFont = new Font(widgetFont, textSize)
 isOnlineText.font = isOnlineTextFont
 isOnlineText.textOpacity = 2.5
 
 // Nastavení zprávy o počtu hráčů
 let PlayersText = widget.addText("Je připojeno " + PlayersOnServer + " hráčů")
 PlayersText.centerAlignText()
-infoFont = new Font(widgetFont, 20)
+infoFont = new Font(widgetFont, textSize)
 PlayersText.font = infoFont
 PlayersText.textOpacity = 2.5
 
