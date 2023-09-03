@@ -5,8 +5,11 @@
 // Nutné vyplnit IP serveru a font
 var serverIP = ""
 var widgetFont = "" // Seznam zde: iosfonts.com
+var listOfOnlinePlayersFont = "" // Font může být stejný jako u celého widgetu - bez vyplnění = zakladní font
 var titleSize = 35 // Velikost nadpisu
 var textSize = 20 // Velikost textu
+var playerListSize = 15 // Velikost jmen hráčů
+var widgetTextOpacity = 0.8 // Průhlednost textu
 
 // Ikona serveru
 var iconRequest = new Request("https://api.mcstatus.io/v2/icon/" + serverIP)
@@ -20,6 +23,7 @@ var dataResult = await dataRequest.loadJSON()
 var onlinePlayers = dataResult.players.online
 var maxPlayers = dataResult.players.max
 var isOnline = dataResult.online
+var trueListOfPlayers = dataResult.players.list ? "\n" + dataResult.players.list.map(p => ` ${p.name_clean} `).join('\r\n') : "";
 
 // Přepis z true/false na online/offline
 if (isOnline = "true") {
@@ -43,21 +47,29 @@ Title.centerAlignText()
 titleFont = new Font(widgetFont, titleSize)
 Title.font = titleFont
 Title.height = 3
-Title.textOpacity = 2.5
+Title.textOpacity = widgetTextOpacity
 
 // Nastavení zprávy o aktivitě serveru 
 let isOnlineText = widget.addText("Server je " + isServerOnline)
 isOnlineText.centerAlignText()
 isOnlineTextFont = new Font(widgetFont, textSize)
 isOnlineText.font = isOnlineTextFont
-isOnlineText.textOpacity = 2.5
+isOnlineText.textOpacity = widgetTextOpacity
 
 // Nastavení zprávy o počtu hráčů
 let PlayersText = widget.addText("Je připojeno " + PlayersOnServer + " hráčů")
 PlayersText.centerAlignText()
 infoFont = new Font(widgetFont, textSize)
 PlayersText.font = infoFont
-PlayersText.textOpacity = 2.5
+PlayersText.textOpacity = widgetTextOpacity
+
+// Nastavení listu se jmény hráčů
+let PlayerList = widget.addText(trueListOfPlayers)
+PlayerList.centerAlignText()
+PlayerListFont = new Font(listOfOnlinePlayersFont, playerListSize)
+PlayerList.font = PlayerListFont
+PlayerList.textOpacity = widgetTextOpacity
+
 
 // Nastavení ikony serveru jako pozadí
 widget.backgroundImage = iconResult
