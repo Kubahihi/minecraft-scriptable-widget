@@ -5,6 +5,8 @@ Jednoduchý widget na iOS/iPadOS, který proužívá aplikaci Scriptable a MCSta
 
 # Jak spustit widget
 ## 1. Stahněte si aplikaci [Scriptable](https://apps.apple.com/cz/app/scriptable/id1405459188?l=cs)
+
+# Video tutoriál [zde](https://youtu.be/Ov03H6lVVIw?si=HSNlqwQeXOZ_1oz8)
 ## 2. Otevřete aplikaci
 ## 3. Otevřete aplikaci Soubory
 ### 3.1 Běžte do sekce iCloud
