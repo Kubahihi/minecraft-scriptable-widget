@@ -1,5 +1,5 @@
 # Minecraft Scriptable Widget
-Jednoduchý widget na iOS/iPadOS, který proužívá aplikaci Scriptable a MCStatus API
+Jednoduchý widget na iOS/iPadOS, který proužívá aplikaci Scriptable a MCStatus API (na bedrock ikony - [Minecraft server status Api](https://mcsrvstat.us))
 ### [Aplikace Scriptable pro iOS](https://apps.apple.com/cz/app/scriptable/id1405459188?l=cs)
 ### [mcstatus.io](https://mcstatus.io)
 
