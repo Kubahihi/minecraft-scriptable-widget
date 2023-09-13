@@ -4,6 +4,7 @@
 // icon-glyph: gamepad;
 // Nutné vyplnit IP serveru a font
 var serverIP = ""
+var serverPlatform = "" // Only java or bedrock - geyser servers are java!
 var widgetFont = "" // Seznam zde: iosfonts.com
 var listOfOnlinePlayersFont = "" // Font může být stejný jako u celého widgetu - bez vyplnění = zakladní font
 var titleSize = 35 // Velikost nadpisu
@@ -12,11 +13,16 @@ var playerListSize = 15 // Velikost jmen hráčů
 var widgetTextOpacity = 0.8 // Průhlednost textu
 
 // Ikona serveru
-var iconRequest = new Request("https://api.mcstatus.io/v2/icon/" + serverIP)
+if(serverPlatform == "java"){
+var iconRequest = new Request(`https://api.mcstatus.io/v2/icon/${serverIP}`)
 var iconResult = await iconRequest.loadImage()
+} else {
+var iconRequest = new Request(`https://api.mcsrvstat.us/icon/${serverIP}`)
+var iconResult = await iconRequest.loadImage()
+}
 
 // Informace o serveru
-var dataRequest = new Request("https://api.mcstatus.io/v2/status/java/" + serverIP)
+var dataRequest = new Request(`https://api.mcstatus.io/v2/status/${serverPlatform}/${serverIP}`)
 var dataResult = await dataRequest.loadJSON()
 
 // Proměnné
